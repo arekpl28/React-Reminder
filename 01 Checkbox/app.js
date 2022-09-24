@@ -1,9 +1,14 @@
-const PositiveMessage = () => {
-  return <p>You can watch the movie. We invite!</p>;
-};
+// const PositiveMessage = () => {
+//   return <p>You can watch the movie. We invite!</p>;
+// };
 
-const NegativeMessage = () => {
-  return <p>You cannot watch this movie if you are under 16!</p>;
+// const NegativeMessage = () => {
+//   return <p>You cannot watch this movie if you are under 16!</p>;
+// };
+
+const ValidationMessage = (props) => {
+  const { txt } = props;
+  return <p>{txt}</p>;
 };
 
 class TicketShop extends React.Component {
@@ -31,9 +36,11 @@ class TicketShop extends React.Component {
   displayMessage = () => {
     if (this.state.isFormSubmitted) {
       if (this.state.isConfirmed) {
-        return <PositiveMessage />;
+        return <ValidationMessage txt="You can watch the movie. We invite!" />;
       } else {
-        return <NegativeMessage />;
+        return (
+          <ValidationMessage txt="You cannot watch this movie if you are under 16!" />
+        );
       }
     } else {
       return null;
@@ -41,6 +48,7 @@ class TicketShop extends React.Component {
   };
 
   render() {
+    const { isConfirmed } = this.state;
     return (
       <>
         <h1>Buy a ticket to a horror movie</h1>
@@ -49,7 +57,7 @@ class TicketShop extends React.Component {
             type="checkbox"
             id="age"
             onChange={this.handleCheckBox}
-            checked={this.state.isConfirmed}
+            checked={isConfirmed}
           />
           <label htmlFor="age">I am at least 16 years old</label>
           <br />
