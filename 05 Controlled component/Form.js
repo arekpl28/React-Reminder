@@ -6,28 +6,41 @@ class Form extends React.Component {
     number: 0,
   };
 
-  handleCityChange = (event) => {
-    this.setState({
-      city: event.target.value,
-    });
-  };
+  // handleCityChange = (event) => {
+  //   this.setState({
+  //     city: event.target.value,
+  //   });
+  // };
 
-  handleTextChange = (event) => {
-    this.setState({
-      text: event.target.value,
-    });
-  };
+  // handleTextChange = (event) => {
+  //   this.setState({
+  //     text: event.target.value,
+  //   });
+  // };
 
-  handleKnowChange = (event) => {
-    this.setState({
-      know: event.target.checked,
-    });
-  };
+  // handleKnowChange = (event) => {
+  //   this.setState({
+  //     know: event.target.checked,
+  //   });
+  // };
 
-  handleVisitsNumberChange = (event) => {
-    this.setState({
-      number: event.target.value,
-    });
+  // handleVisitsNumberChange = (event) => {
+  //   this.setState({
+  //     number: event.target.value,
+  //   });
+  // };
+
+  handleChange = (e) => {
+    console.log(e.target.name);
+    if (e.target.type === "checkbox") {
+      this.setState({
+        [e.target.name]: e.target.checked,
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   render() {
@@ -36,8 +49,9 @@ class Form extends React.Component {
         <label>
           Enter city name:
           <input
-            onChange={this.handleCityChange}
+            onChange={this.handleChange}
             value={this.state.city}
+            name="city"
             type="text"
           />
         </label>
@@ -45,25 +59,28 @@ class Form extends React.Component {
         <label>
           Write something about this city
           <textarea
+            onChange={this.handleChange}
             value={this.state.text}
-            onChange={this.handleTextChange}
+            name="text"
           ></textarea>
         </label>
         <br />
         <label>
           Do you know this city
           <input
-            type="checkbox"
+            onChange={this.handleChange}
             checked={this.state.know}
-            onChange={this.handleKnowChange}
+            name="know"
+            type="checkbox"
           />
         </label>
         <br />
         <label>
           How many times have you been to this city
           <select
+            onChange={this.handleChange}
             value={this.state.number}
-            onChange={this.handleVisitsNumberChange}
+            name="number"
           >
             <option value="0">0</option>
             <option value="1">1</option>
