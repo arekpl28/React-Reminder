@@ -1,4 +1,12 @@
 const Item = (props) => {
-  const { name, activeItem } = props;
-  return <li style={activeItem ? { fontWeight: "bold" } : {}}>{name}</li>;
+  const { id, name, activeItem, changeStatus } = props;
+  return (
+    <li
+      className={activeItem ? "enabled" : null}
+      onClick={() => changeStatus(props.id)}
+      // style={activeItem ? { fontWeight: "bold" } : {}}
+    >
+      {name}
+    </li>
+  );
 };

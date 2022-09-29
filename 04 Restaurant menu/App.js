@@ -9,11 +9,25 @@ class App extends React.Component {
       { id: 6, name: "chleb", active: true },
     ],
   };
+  handleChangeStatus = (index) => {
+    const items = this.state.items.map((item) => {
+      if (item.id === index) {
+        item.active = !item.active;
+      }
+      return item;
+    });
+    this.setState({
+      items,
+    });
+  };
   render() {
     return (
       <>
         <Header items={this.state.items}></Header>
-        <ListItems items={this.state.items}></ListItems>
+        <ListItems
+          changeStatus={this.handleChangeStatus}
+          items={this.state.items}
+        ></ListItems>
       </>
     );
   }
