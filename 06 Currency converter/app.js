@@ -1,8 +1,10 @@
-const Dollars = (props) => {
-  return <div>Value in dollar: {(props.cash / props.ratio).toFixed(2)} $ </div>;
-};
-const Euros = (props) => {
-  return <div>Value in euro: {(props.cash / props.ratio).toFixed(2)} € </div>;
+const Cash = (props) => {
+  return (
+    <div>
+      {props.title} {(props.cash / props.ratio).toFixed(2)}{" "}
+      {props.sign === "$" ? "$" : "€"}
+    </div>
+  );
 };
 
 class ExchangeCounter extends React.Component {
@@ -25,8 +27,18 @@ class ExchangeCounter extends React.Component {
           <input type="number" value={amount} onChange={this.handleChange} />{" "}
           PLN
         </label>
-        <Dollars cash={amount} ratio={ratioDollar}></Dollars>
-        <Euros cash={amount} ratio={ratioEuro}></Euros>
+        <Cash
+          cash={amount}
+          ratio={ratioDollar}
+          title="Value in dollar: "
+          sign="$"
+        ></Cash>
+        <Cash
+          cash={amount}
+          ratio={ratioEuro}
+          title="Value in euro: "
+          sign="€"
+        ></Cash>
       </>
     );
   }
