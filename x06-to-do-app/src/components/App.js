@@ -57,6 +57,7 @@ class App extends Component {
         finishDate: null,
       },
     ],
+    taskNewId: 6,
   };
 
   deleteTask = (id) => {
@@ -69,6 +70,7 @@ class App extends Component {
 
     this.setState({
       tasks,
+      taskNewId: this.state.taskNewId - 1,
     });
   };
 
@@ -82,16 +84,28 @@ class App extends Component {
       }
     });
 
+    for (let i = 0; i < tasks.length; i++) {
+      tasks[i].id = i;
+    }
+
     this.setState({
       tasks,
     });
+  };
+
+  addTask = (task) => {
+    this.setState((prevState) => ({
+      tasks: [...prevState.tasks, task],
+      taskNewId: this.state.taskNewId + 1,
+    }));
+    return true;
   };
 
   render() {
     return (
       <>
         <h1>TODO APP</h1>
-        <AddTask />
+        <AddTask id={this.state.taskNewId} add={this.addTask} />
         <TaskList
           tasks={this.state.tasks}
           delete={this.deleteTask}
