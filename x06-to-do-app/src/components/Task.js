@@ -1,10 +1,14 @@
 import React from "react";
 
-function Task() {
+function Task(props) {
+  const { id, text, date, important, active, finishDate } = props.task;
   return (
-    <div className="task">
-      <div>Task</div>
-    </div>
+    <li>
+      <p>
+        {text} by {date} <button onClick={() => props.change(id)}>Done</button>{" "}
+        <button onClick={() => props.delete(id)}>X</button>
+      </p>
+    </li>
   );
 }
 
