@@ -44,11 +44,32 @@ class App extends Component {
   };
 
   deleteTask = (id) => {
-    console.log(id);
+    const tasks = [...this.state.tasks];
+
+    tasks.splice(id, 1);
+    for (let i = 0; i < tasks.length; i++) {
+      tasks[i].id = i;
+    }
+
+    this.setState({
+      tasks,
+    });
   };
 
   changeTaskStatus = (id) => {
-    console.log(id);
+    const tasks = [...this.state.tasks];
+
+    tasks.forEach((task) => {
+      if (task.id === id) {
+        task.active = true;
+        return task;
+      }
+      return task;
+    });
+
+    this.setState({
+      tasks,
+    });
   };
 
   render() {
