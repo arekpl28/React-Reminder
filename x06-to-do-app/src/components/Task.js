@@ -1,7 +1,7 @@
 import React from "react";
 
 function Task(props) {
-  const { id, text, date, important, active, finishDate } = props.task;
+  const { id, text, date } = props.task;
   return (
     <li>
       <p>

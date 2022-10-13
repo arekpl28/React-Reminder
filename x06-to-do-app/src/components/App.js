@@ -40,6 +40,22 @@ class App extends Component {
         active: true,
         finishDate: null,
       },
+      {
+        id: 4,
+        text: "Sleping",
+        date: "2022-12-22",
+        important: false,
+        active: false,
+        finishDate: null,
+      },
+      {
+        id: 5,
+        text: "Wash car",
+        date: "2023-10-22",
+        important: true,
+        active: true,
+        finishDate: null,
+      },
     ],
   };
 
@@ -61,10 +77,9 @@ class App extends Component {
 
     tasks.forEach((task) => {
       if (task.id === id) {
-        task.active = true;
-        return task;
+        task.active = false;
+        task.finishDate = new Date().getTime();
       }
-      return task;
     });
 
     this.setState({
