@@ -1,27 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter, Routes, Outlet, Link, Route } from "react-router-dom";
+import { BrowserRouter, Routes, NavLink, Route } from "react-router-dom";
 
-const Layout = () => {
-  return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/news">News</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <Outlet />
-    </>
-  );
-};
+import "./App.css";
 
 const Home = () => {
   return <h1>Home</h1>;
@@ -40,14 +20,27 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="home">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/news">News</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+          </ul>
+        </nav>
+        <section>
+          <Routes>
+            <Route path="home" exact={true} element={<Home />} />
             <Route path="news" element={<News />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NoPage />} />
-          </Route>
-        </Routes>
+          </Routes>
+        </section>
       </BrowserRouter>
     );
   }
