@@ -17,9 +17,10 @@ div.app main {
   padding: 30px 0;
 }
 div.app main aside {
-  width: 240px;
+  display: flex;
+  width: 200px;
 }
-div.app main section.page {
+div.app main section {
   flex-grow: 1;
 }
 div.app footer {

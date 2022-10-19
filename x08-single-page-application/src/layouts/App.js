@@ -16,7 +16,7 @@ class App extends Component {
           <header>{<Header />}</header>
           <main>
             <aside>{<Navigation />}</aside>
-            <section className="page">{<Page />}</section>
+            <section>{<Page />}</section>
           </main>
           <footer>{<Footer />}</footer>
         </div>
