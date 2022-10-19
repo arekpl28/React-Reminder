@@ -1,0 +1,18 @@
+div.start {
+  padding: 0 20px 20px 20px;
+}
+div.start article {
+  margin-bottom: 20px;
+}
+div.start article h3 {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+div.start article span {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+div.start article p {
+  font-size: 18px;
+}

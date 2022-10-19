@@ -4,7 +4,6 @@ div.app {
   width: 90%;
   min-height: 100vh;
   margin: 0 auto;
-  background-color: #ddd;
   color: #222;
 }
 div.app header {
@@ -19,11 +18,9 @@ div.app main {
 }
 div.app main aside {
   width: 240px;
-  background-color: #ccc;
 }
-div.app main section {
+div.app main section.page {
   flex-grow: 1;
-  background-color: #aaa;
 }
 div.app footer {
   padding: 10px;
