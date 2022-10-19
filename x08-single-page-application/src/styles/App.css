@@ -9,8 +9,8 @@ div.app {
 }
 div.app header {
   flex-basis: 30vh;
-  background-color: #444;
-  color: white;
+  position: relative;
+  overflow: hidden;
 }
 div.app main {
   display: flex;
